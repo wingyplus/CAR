@@ -1,0 +1,6 @@
+C:\Users\WINGYPLUS\Desktop\CAR\CAR\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\WINGYPLUS\Desktop\CAR\CAR\obj\x86\Release\CAR.IndexForm.resources
+C:\Users\WINGYPLUS\Desktop\CAR\CAR\obj\x86\Release\CAR.ManageForm.resources
+C:\Users\WINGYPLUS\Desktop\CAR\CAR\obj\x86\Release\CAR.Resources.resources
+C:\Users\WINGYPLUS\Desktop\CAR\CAR\obj\x86\Release\GenerateResource.read.1.tlog
+C:\Users\WINGYPLUS\Desktop\CAR\CAR\obj\x86\Release\GenerateResource.write.1.tlog
