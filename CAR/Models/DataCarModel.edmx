@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DataCarModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.3.5" ProviderManifestToken="3.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="DataCarModelStoreContainer">
+    <EntitySet Name="Students" EntityType="DataCarModel.Store.Students" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cars" EntityType="DataCarModel.Store.Cars" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cars_TimeCars" EntityType="DataCarModel.Store.Cars_TimeCars" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="StudentsCars" Association="DataCarModel.Store.StudentsCars">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Cars" EntitySet="Cars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TimeCars_inherits_Cars" Association="DataCarModel.Store.FK_TimeCars_inherits_Cars">
+      <End Role="Cars" EntitySet="Cars" />
+      <End Role="TimeCars" EntitySet="Cars_TimeCars" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="8" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Dome" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="StudyField" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Phone" Type="nvarchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Cars">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="100" />
+    <Property Name="Brand" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Model" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="TagId" Type="nvarchar" Nullable="false" />
+    <Property Name="Picture" Type="nvarchar" Nullable="false" />
+    <Property Name="Student_Id" Type="nchar" MaxLength="8" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cars_TimeCars">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="DateTime" Type="datetime" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <Association Name="StudentsCars">
+    <End Role="Students" Type="DataCarModel.Store.Students" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Cars" Type="DataCarModel.Store.Cars" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cars">
+        <PropertyRef Name="Student_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TimeCars_inherits_Cars">
+    <End Role="Cars" Type="DataCarModel.Store.Cars" Multiplicity="1" />
+    <End Role="TimeCars" Type="DataCarModel.Store.Cars_TimeCars" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Cars">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TimeCars">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="DataCarModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="DataCarModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Students" EntityType="DataCarModel.Students" />
+          <EntitySet Name="Cars" EntityType="DataCarModel.Cars" />
+          <AssociationSet Name="StudentsCars" Association="DataCarModel.StudentsCars">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Students">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="String" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Unicode="true" FixedLength="true" MaxLength="8" />
+          <Property Type="String" Name="FirstName" Nullable="false" Unicode="true" MaxLength="100" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="100" Unicode="true" />
+          <Property Type="String" Name="Dome" Nullable="false" MaxLength="100" Unicode="true" />
+          <Property Type="String" Name="StudyField" Nullable="false" MaxLength="100" Unicode="true" />
+          <Property Type="String" Name="Phone" Nullable="false" MaxLength="10" Unicode="true" />
+          <NavigationProperty Name="Cars" Relationship="DataCarModel.StudentsCars" FromRole="Students" ToRole="Cars" />
+        </EntityType>
+        <EntityType Name="Cars">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="String" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Unicode="true" MaxLength="100" FixedLength="false" />
+          <Property Type="String" Name="Brand" Nullable="false" Unicode="true" MaxLength="100" />
+          <Property Type="String" Name="Model" Nullable="false" MaxLength="100" Unicode="true" />
+          <Property Type="String" Name="TagId" Nullable="false" Unicode="true" />
+          <Property Type="String" Name="Picture" Nullable="false" Unicode="true" />
+          <NavigationProperty Name="Student" Relationship="DataCarModel.StudentsCars" FromRole="Cars" ToRole="Students" />
+        </EntityType>
+        <EntityType Name="TimeCars" BaseType="DataCarModel.Cars">
+          <Property Type="DateTime" Name="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <Association Name="StudentsCars">
+          <End Type="DataCarModel.Students" Role="Students" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DataCarModel.Cars" Role="Cars" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DataCarModelStoreContainer" CdmEntityContainer="DataCarModelContainer">
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="IsTypeOf(DataCarModel.Students)">
+        <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Dome" ColumnName="Dome" />
+          <ScalarProperty Name="StudyField" ColumnName="StudyField" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cars">
+      <EntityTypeMapping TypeName="IsTypeOf(DataCarModel.Cars)">
+        <MappingFragment StoreEntitySet="Cars">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="TagId" ColumnName="TagId" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(DataCarModel.TimeCars)">
+        <MappingFragment StoreEntitySet="Cars_TimeCars">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="StudentsCars" TypeName="DataCarModel.StudentsCars" StoreEntitySet="Cars">
+      <EndProperty Name="Students">
+        <ScalarProperty Name="Id" ColumnName="Student_Id" />
+      </EndProperty>
+      <EndProperty Name="Cars">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="DataCarModel" >
+        <EntityTypeShape EntityType="DataCarModel.Students" Width="1.5" PointX="0.5" PointY="0.875" Height="2.172587890625" />
+        <EntityTypeShape EntityType="DataCarModel.Cars" Width="1.5" PointX="2.75" PointY="0.875" Height="2.172587890625" />
+        <EntityTypeShape EntityType="DataCarModel.TimeCars" Width="1.5" PointX="5.125" PointY="0.875" Height="1.2110807291666665" />
+        <InheritanceConnector EntityType="DataCarModel.TimeCars">
+          <ConnectorPoint PointX="4.25" PointY="1.4805403645833333" />
+          <ConnectorPoint PointX="5.125" PointY="1.4805403645833333" />
+        </InheritanceConnector>
+        <AssociationConnector Association="DataCarModel.StudentsCars">
+          <ConnectorPoint PointX="2" PointY="1.9612939453125" />
+          <ConnectorPoint PointX="2.75" PointY="1.9612939453125" />
+        </AssociationConnector>
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

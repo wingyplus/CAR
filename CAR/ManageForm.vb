@@ -5,12 +5,12 @@
         IndexForm.Show()
     End Sub
 
-    Private Sub ComboBox1_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles Ins_ComboBox.SelectedIndexChanged
-
-    End Sub
-
     Private Sub Reset_Button_Click(sender As System.Object, e As System.EventArgs) Handles Reset_Button.Click
         ClearForm()
+    End Sub
+
+    Private Sub Submit_Button_Click(sender As System.Object, e As System.EventArgs) Handles Submit_Button.Click
+
     End Sub
 
     Private Sub ClearForm()
@@ -24,4 +24,6 @@
         Brand_TextBox.Text = ""
         Plate_TextBox.Text = ""
     End Sub
+
+
 End Class
