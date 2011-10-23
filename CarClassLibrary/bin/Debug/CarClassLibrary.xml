@@ -1,0 +1,182 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+CarClassLibrary
+</name>
+</assembly>
+<members>
+<member name="M:CarClassLibrary.DataCarEntities.#ctor">
+	<summary>
+ Initializes a new DataCarEntities object using the connection string found in the 'DataCarEntities' section of the application configuration file.
+ </summary>
+</member><member name="M:CarClassLibrary.DataCarEntities.#ctor(System.String)">
+	<summary>
+ Initialize a new DataCarEntities object.
+ </summary>
+</member><member name="M:CarClassLibrary.DataCarEntities.#ctor(System.Data.EntityClient.EntityConnection)">
+	<summary>
+ Initialize a new DataCarEntities object.
+ </summary>
+</member><member name="P:CarClassLibrary.DataCarEntities.Cars">
+	<summary>
+ No Metadata Documentation available.
+ </summary>
+</member><member name="P:CarClassLibrary.DataCarEntities.TimeCars">
+	<summary>
+ No Metadata Documentation available.
+ </summary>
+</member><member name="P:CarClassLibrary.DataCarEntities.Students">
+	<summary>
+ No Metadata Documentation available.
+ </summary>
+</member><member name="M:CarClassLibrary.DataCarEntities.AddToCars(CarClassLibrary.Car)">
+	<summary>
+ Deprecated Method for adding a new object to the Cars EntitySet. Consider using the .Add method of the associated ObjectSet(Of T) property instead.
+ </summary>
+</member><member name="M:CarClassLibrary.DataCarEntities.AddToTimeCars(CarClassLibrary.TimeCars)">
+	<summary>
+ Deprecated Method for adding a new object to the TimeCars EntitySet. Consider using the .Add method of the associated ObjectSet(Of T) property instead.
+ </summary>
+</member><member name="M:CarClassLibrary.DataCarEntities.AddToStudents(CarClassLibrary.Student)">
+	<summary>
+ Deprecated Method for adding a new object to the Students EntitySet. Consider using the .Add method of the associated ObjectSet(Of T) property instead.
+ </summary>
+</member><member name="T:CarClassLibrary.DataCarEntities">
+	<summary>
+ No Metadata Documentation available.
+ </summary>
+</member><member name="M:CarClassLibrary.Car.CreateCar(System.String,System.String,System.String,System.String,System.String,System.String)">
+	<summary>
+ Create a new Car object.
+ </summary>
+	<param name="id">Initial value of the Id property.</param>
+	<param name="brand">Initial value of the Brand property.</param>
+	<param name="model">Initial value of the Model property.</param>
+	<param name="tagId">Initial value of the TagId property.</param>
+	<param name="picture">Initial value of the Picture property.</param>
+	<param name="student_Id">Initial value of the Student_Id property.</param>
+</member><member name="P:CarClassLibrary.Car.Id">
+	<summary>
+ No Metadata Documentation available.
+ </summary>
+</member><member name="P:CarClassLibrary.Car.Brand">
+	<summary>
+ No Metadata Documentation available.
+ </summary>
+</member><member name="P:CarClassLibrary.Car.Model">
+	<summary>
+ No Metadata Documentation available.
+ </summary>
+</member><member name="P:CarClassLibrary.Car.TagId">
+	<summary>
+ No Metadata Documentation available.
+ </summary>
+</member><member name="P:CarClassLibrary.Car.Picture">
+	<summary>
+ No Metadata Documentation available.
+ </summary>
+</member><member name="P:CarClassLibrary.Car.Student_Id">
+	<summary>
+ No Metadata Documentation available.
+ </summary>
+</member><member name="P:CarClassLibrary.Car.Student">
+	<summary>
+ No Metadata Documentation available.
+ </summary>
+</member><member name="P:CarClassLibrary.Car.StudentReference">
+	<summary>
+ No Metadata Documentation available.
+ </summary>
+</member><member name="P:CarClassLibrary.Car.TimeCars">
+	<summary>
+ No Metadata Documentation available.
+ </summary>
+</member><member name="T:CarClassLibrary.Car">
+	<summary>
+ No Metadata Documentation available.
+ </summary>
+</member><member name="M:CarClassLibrary.Student.CreateStudent(System.String,System.String,System.String,System.String,System.String,System.String)">
+	<summary>
+ Create a new Student object.
+ </summary>
+	<param name="id">Initial value of the Id property.</param>
+	<param name="firstName">Initial value of the FirstName property.</param>
+	<param name="lastName">Initial value of the LastName property.</param>
+	<param name="dome">Initial value of the Dome property.</param>
+	<param name="studyField">Initial value of the StudyField property.</param>
+	<param name="phone">Initial value of the Phone property.</param>
+</member><member name="P:CarClassLibrary.Student.Id">
+	<summary>
+ No Metadata Documentation available.
+ </summary>
+</member><member name="P:CarClassLibrary.Student.FirstName">
+	<summary>
+ No Metadata Documentation available.
+ </summary>
+</member><member name="P:CarClassLibrary.Student.LastName">
+	<summary>
+ No Metadata Documentation available.
+ </summary>
+</member><member name="P:CarClassLibrary.Student.Dome">
+	<summary>
+ No Metadata Documentation available.
+ </summary>
+</member><member name="P:CarClassLibrary.Student.StudyField">
+	<summary>
+ No Metadata Documentation available.
+ </summary>
+</member><member name="P:CarClassLibrary.Student.Phone">
+	<summary>
+ No Metadata Documentation available.
+ </summary>
+</member><member name="P:CarClassLibrary.Student.Cars">
+	<summary>
+ No Metadata Documentation available.
+ </summary>
+</member><member name="T:CarClassLibrary.Student">
+	<summary>
+ No Metadata Documentation available.
+ </summary>
+</member><member name="M:CarClassLibrary.TimeCars.CreateTimeCars(System.DateTime,System.Int32)">
+	<summary>
+ Create a new TimeCars object.
+ </summary>
+	<param name="dateTime">Initial value of the DateTime property.</param>
+	<param name="id">Initial value of the Id property.</param>
+</member><member name="P:CarClassLibrary.TimeCars.DateTime">
+	<summary>
+ No Metadata Documentation available.
+ </summary>
+</member><member name="P:CarClassLibrary.TimeCars.Id">
+	<summary>
+ No Metadata Documentation available.
+ </summary>
+</member><member name="P:CarClassLibrary.TimeCars.Car">
+	<summary>
+ No Metadata Documentation available.
+ </summary>
+</member><member name="P:CarClassLibrary.TimeCars.CarReference">
+	<summary>
+ No Metadata Documentation available.
+ </summary>
+</member><member name="T:CarClassLibrary.TimeCars">
+	<summary>
+ No Metadata Documentation available.
+ </summary>
+</member><member name="P:CarClassLibrary.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:CarClassLibrary.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:CarClassLibrary.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>

@@ -1,4 +1,6 @@
-﻿Public Class ManageForm
+﻿Imports CarClassLibrary
+
+Public Class ManageForm
 
     Private Sub ClearStudentForm()
         IDName_TextBox.Text = ""

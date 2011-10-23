@@ -1,0 +1,12 @@
+C:\Users\WINGYPLUS\Desktop\CAR\CarClassLibrary\bin\Debug\DataCar.sdf
+C:\Users\WINGYPLUS\Desktop\CAR\CarClassLibrary\bin\Debug\CarClassLibrary.dll.config
+C:\Users\WINGYPLUS\Desktop\CAR\CarClassLibrary\bin\Debug\CarClassLibrary.dll
+C:\Users\WINGYPLUS\Desktop\CAR\CarClassLibrary\bin\Debug\CarClassLibrary.pdb
+C:\Users\WINGYPLUS\Desktop\CAR\CarClassLibrary\bin\Debug\CarClassLibrary.xml
+C:\Users\WINGYPLUS\Desktop\CAR\CarClassLibrary\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\WINGYPLUS\Desktop\CAR\CarClassLibrary\obj\Debug\CarClassLibrary.Resources.resources
+C:\Users\WINGYPLUS\Desktop\CAR\CarClassLibrary\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\WINGYPLUS\Desktop\CAR\CarClassLibrary\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\WINGYPLUS\Desktop\CAR\CarClassLibrary\obj\Debug\CarClassLibrary.dll
+C:\Users\WINGYPLUS\Desktop\CAR\CarClassLibrary\obj\Debug\CarClassLibrary.xml
+C:\Users\WINGYPLUS\Desktop\CAR\CarClassLibrary\obj\Debug\CarClassLibrary.pdb
