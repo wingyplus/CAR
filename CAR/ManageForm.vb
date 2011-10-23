@@ -57,4 +57,9 @@
         StudentOwner_ComboBox.Items.Add(IDName_TextBox.Text & "-" & FName_TextBox.Text & " " & LName_TextBox.Text)
         ClearStudentForm()
     End Sub
+
+    Private Sub Browse_Button_Click(sender As System.Object, e As System.EventArgs) Handles Browse_Button.Click
+        OpenFileDialog.ShowDialog()
+        Path_TextBox.Text = OpenFileDialog.FileName
+    End Sub
 End Class
