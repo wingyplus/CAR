@@ -1,0 +1,14 @@
+C:\Users\WINGYPLUS\Desktop\CAR\CAR\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\WINGYPLUS\Desktop\CAR\CAR\obj\x86\Release\CAR.IndexForm.resources
+C:\Users\WINGYPLUS\Desktop\CAR\CAR\obj\x86\Release\CAR.ManageForm.resources
+C:\Users\WINGYPLUS\Desktop\CAR\CAR\obj\x86\Release\CAR.Resources.resources
+C:\Users\WINGYPLUS\Desktop\CAR\CAR\obj\x86\Release\GenerateResource.read.1.tlog
+C:\Users\WINGYPLUS\Desktop\CAR\CAR\obj\x86\Release\GenerateResource.write.1.tlog
+C:\Users\WINGYPLUS\Desktop\CAR\CAR\bin\Release\DataCar.sdf
+C:\Users\WINGYPLUS\Desktop\CAR\CAR\bin\Release\CAR.exe.config
+C:\Users\WINGYPLUS\Desktop\CAR\CAR\bin\Release\CAR.exe
+C:\Users\WINGYPLUS\Desktop\CAR\CAR\bin\Release\CAR.pdb
+C:\Users\WINGYPLUS\Desktop\CAR\CAR\bin\Release\CAR.xml
+C:\Users\WINGYPLUS\Desktop\CAR\CAR\obj\x86\Release\CAR.exe
+C:\Users\WINGYPLUS\Desktop\CAR\CAR\obj\x86\Release\CAR.xml
+C:\Users\WINGYPLUS\Desktop\CAR\CAR\obj\x86\Release\CAR.pdb
