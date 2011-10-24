@@ -1,7 +1,6 @@
 ﻿Imports CarClassLibrary
 
 Public Class ManageForm
-    Private IdTmp As String
 
     Private Sub ClearStudentForm()
         IDName_TextBox.Text = ""
@@ -37,12 +36,20 @@ Public Class ManageForm
         End Using
     End Sub
 
-    Private Sub Index_Button_Click(sender As System.Object, e As System.EventArgs)
-        Me.Hide()
-        IndexForm.Show()
-    End Sub
-
     Private Sub StudentReset_Button_Click(sender As System.Object, e As System.EventArgs) Handles StudentReset_Button.Click
+        If StudentReset_Button.Text = "ลบข้อมูล" Then
+            Dim id = IDName_TextBox.Text
+            Using entity As New DataCarEntities
+                Dim student = entity.Students.First(
+                    Function(st) st.Id = id
+                        )
+
+                entity.DeleteObject(student)
+                entity.SaveChanges()
+                IDName_TextBox.Enabled = True
+                BindDataSource()
+            End Using
+        End If
         ClearStudentForm()
     End Sub
 
@@ -51,15 +58,16 @@ Public Class ManageForm
     '
     Private Sub StudentSave_Button_Click(sender As System.Object, e As System.EventArgs) Handles StudentSave_Button.Click
         If StudentSave_Button.Text = "แก้ไขข้อมูล" Then
+            Dim id = IDName_TextBox.Text
             Using entity As New DataCarEntities
                 '
                 ' Get Student Objects with Id
                 '
                 Dim student = entity.Students.First(
-                    Function(st) st.Id = IdTmp
+                    Function(st) st.Id = id
                         )
 
-                student.Id = IDName_TextBox.Text
+                ' student.Id = IDName_TextBox.Text
                 student.FirstName = FName_TextBox.Text
                 student.LastName = LName_TextBox.Text
                 student.Dome = Dorm_TextBox.Text
@@ -73,7 +81,6 @@ Public Class ManageForm
                 ' เปลี่ยนชื่อปุ่มกลับ
                 '
                 StudentSave_Button.Text = "บันทึกข้อมูล"
-                ClearStudentForm()
                 IDName_TextBox.Enabled = True
             End Using
         Else
@@ -104,9 +111,8 @@ Public Class ManageForm
             End Try
 
             StudentOwner_ComboBox.Items.Add(IDName_TextBox.Text & "-" & FName_TextBox.Text & " " & LName_TextBox.Text)
-            ClearStudentForm()
         End If
-
+        ClearStudentForm()
         '
         ' Update Data Table
         '
@@ -126,7 +132,7 @@ Public Class ManageForm
             Dim student = entity.Students.First(
                 Function(st) st.Id = id
                     )
-            IdTmp = student.Id
+
             IDName_TextBox.Text = student.Id
             FName_TextBox.Text = student.FirstName
             LName_TextBox.Text = student.LastName
@@ -134,6 +140,7 @@ Public Class ManageForm
             Field_ComboBox.SelectedText = student.StudyField
             Phone_TextBox.Text = student.Phone
             StudentSave_Button.Text = "แก้ไขข้อมูล"
+            StudentReset_Button.Text = "ลบข้อมูล"
         End Using
 
         IDName_TextBox.Enabled = False
