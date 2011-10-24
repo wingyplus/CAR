@@ -11,6 +11,15 @@ Public Class ManageForm
         Phone_TextBox.Text = ""
     End Sub
 
+    Private Sub BindDataSource()
+        Using dataCar As New DataCarEntities
+            Dim students = From a In dataCar.Students
+                           Select a.Id, a.FirstName, a.LastName
+                           Order By Id Ascending
+            StudentBindingSource.DataSource = students
+        End Using
+    End Sub
+
     '
     ' เรียกข้อมูลมาใส่ Owner_ComboBox
     '
@@ -19,13 +28,14 @@ Public Class ManageForm
             Dim students = From a In dataCar.Students
                            Select a.Id, a.FirstName, a.LastName
                            Order By Id Ascending
+            StudentBindingSource.DataSource = students
             For Each student In students
                 StudentOwner_ComboBox.Items.Add(student.Id & "-" & student.FirstName & " " & student.LastName)
             Next
         End Using
     End Sub
 
-    Private Sub Index_Button_Click(sender As System.Object, e As System.EventArgs) Handles Index_Button.Click
+    Private Sub Index_Button_Click(sender As System.Object, e As System.EventArgs)
         Me.Hide()
         IndexForm.Show()
     End Sub
@@ -58,10 +68,28 @@ Public Class ManageForm
         MsgBox("บันทึกข้อมูลเรียบร้อย")
         StudentOwner_ComboBox.Items.Add(IDName_TextBox.Text & "-" & FName_TextBox.Text & " " & LName_TextBox.Text)
         ClearStudentForm()
+        BindDataSource()
     End Sub
 
     Private Sub Browse_Button_Click(sender As System.Object, e As System.EventArgs) Handles Browse_Button.Click
         OpenFileDialog.ShowDialog()
         Path_TextBox.Text = OpenFileDialog.FileName
+    End Sub
+
+    Private Sub StudentDataGridView_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles StudentDataGridView.CellContentClick
+        Dim index = StudentDataGridView.CurrentRow.Index
+        Dim id = CStr(StudentDataGridView.Item(0, index).Value)
+        Using entity As New DataCarEntities
+            Dim student = entity.Students.First(
+                Function(st) st.Id = id
+                    )
+
+            IDName_TextBox.Text = student.Id
+            FName_TextBox.Text = student.FirstName
+            LName_TextBox.Text = student.LastName
+            Dorm_TextBox.Text = student.Dome
+            Field_ComboBox.SelectedText = student.StudyField
+            Phone_TextBox.Text = student.Phone
+        End Using
     End Sub
 End Class

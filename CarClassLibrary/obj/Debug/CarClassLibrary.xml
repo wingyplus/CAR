@@ -6,7 +6,20 @@ CarClassLibrary
 </name>
 </assembly>
 <members>
-<member name="M:CarClassLibrary.DataCarEntities.#ctor">
+<member name="P:CarClassLibrary.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:CarClassLibrary.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:CarClassLibrary.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:CarClassLibrary.DataCarEntities.#ctor">
 	<summary>
  Initializes a new DataCarEntities object using the connection string found in the 'DataCarEntities' section of the application configuration file.
  </summary>
@@ -164,19 +177,6 @@ CarClassLibrary
 	<summary>
  No Metadata Documentation available.
  </summary>
-</member><member name="P:CarClassLibrary.My.Resources.Resources.ResourceManager">
-	<summary>
-  Returns the cached ResourceManager instance used by this class.
-</summary>
-</member><member name="P:CarClassLibrary.My.Resources.Resources.Culture">
-	<summary>
-  Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
-</summary>
-</member><member name="T:CarClassLibrary.My.Resources.Resources">
-	<summary>
-  A strongly-typed resource class, for looking up localized strings, etc.
-</summary>
 </member>
 </members>
 </doc>
