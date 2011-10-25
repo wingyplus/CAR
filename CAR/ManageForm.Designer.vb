@@ -55,19 +55,20 @@ Partial Class ManageForm
         Me.StudentOwner_ComboBox = New System.Windows.Forms.ComboBox()
         Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
         Me.ManageTabControl = New System.Windows.Forms.TabControl()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.StudentsTabPage = New System.Windows.Forms.TabPage()
         Me.StudentDataGridView = New System.Windows.Forms.DataGridView()
-        Me.StudentBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FirstNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LastNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StudentBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CarsTabPage = New System.Windows.Forms.TabPage()
+        Me.Cancel_Button = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.ManageTabControl.SuspendLayout()
-        Me.TabPage1.SuspendLayout()
-        Me.TabPage2.SuspendLayout()
+        Me.StudentsTabPage.SuspendLayout()
         CType(Me.StudentDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StudentBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.CarsTabPage.SuspendLayout()
         Me.SuspendLayout()
         '
         'IDTag
@@ -89,7 +90,7 @@ Partial Class ManageForm
         'IDName
         '
         Me.IDName.AutoSize = True
-        Me.IDName.Location = New System.Drawing.Point(77, 35)
+        Me.IDName.Location = New System.Drawing.Point(36, 32)
         Me.IDName.Name = "IDName"
         Me.IDName.Size = New System.Drawing.Size(69, 13)
         Me.IDName.TabIndex = 2
@@ -97,7 +98,7 @@ Partial Class ManageForm
         '
         'IDName_TextBox
         '
-        Me.IDName_TextBox.Location = New System.Drawing.Point(165, 32)
+        Me.IDName_TextBox.Location = New System.Drawing.Point(124, 29)
         Me.IDName_TextBox.Name = "IDName_TextBox"
         Me.IDName_TextBox.Size = New System.Drawing.Size(100, 20)
         Me.IDName_TextBox.TabIndex = 3
@@ -105,7 +106,7 @@ Partial Class ManageForm
         'FName
         '
         Me.FName.AutoSize = True
-        Me.FName.Location = New System.Drawing.Point(77, 70)
+        Me.FName.Location = New System.Drawing.Point(36, 67)
         Me.FName.Name = "FName"
         Me.FName.Size = New System.Drawing.Size(20, 13)
         Me.FName.TabIndex = 4
@@ -113,7 +114,7 @@ Partial Class ManageForm
         '
         'FName_TextBox
         '
-        Me.FName_TextBox.Location = New System.Drawing.Point(165, 67)
+        Me.FName_TextBox.Location = New System.Drawing.Point(124, 64)
         Me.FName_TextBox.Name = "FName_TextBox"
         Me.FName_TextBox.Size = New System.Drawing.Size(100, 20)
         Me.FName_TextBox.TabIndex = 5
@@ -121,7 +122,7 @@ Partial Class ManageForm
         'LName
         '
         Me.LName.AutoSize = True
-        Me.LName.Location = New System.Drawing.Point(77, 105)
+        Me.LName.Location = New System.Drawing.Point(36, 102)
         Me.LName.Name = "LName"
         Me.LName.Size = New System.Drawing.Size(46, 13)
         Me.LName.TabIndex = 6
@@ -129,7 +130,7 @@ Partial Class ManageForm
         '
         'LName_TextBox
         '
-        Me.LName_TextBox.Location = New System.Drawing.Point(165, 102)
+        Me.LName_TextBox.Location = New System.Drawing.Point(124, 99)
         Me.LName_TextBox.Name = "LName_TextBox"
         Me.LName_TextBox.Size = New System.Drawing.Size(100, 20)
         Me.LName_TextBox.TabIndex = 7
@@ -137,7 +138,7 @@ Partial Class ManageForm
         'Dormitory
         '
         Me.Dormitory.AutoSize = True
-        Me.Dormitory.Location = New System.Drawing.Point(77, 140)
+        Me.Dormitory.Location = New System.Drawing.Point(36, 137)
         Me.Dormitory.Name = "Dormitory"
         Me.Dormitory.Size = New System.Drawing.Size(35, 13)
         Me.Dormitory.TabIndex = 8
@@ -145,7 +146,7 @@ Partial Class ManageForm
         '
         'Dorm_TextBox
         '
-        Me.Dorm_TextBox.Location = New System.Drawing.Point(165, 137)
+        Me.Dorm_TextBox.Location = New System.Drawing.Point(124, 134)
         Me.Dorm_TextBox.Name = "Dorm_TextBox"
         Me.Dorm_TextBox.Size = New System.Drawing.Size(100, 20)
         Me.Dorm_TextBox.TabIndex = 9
@@ -153,7 +154,7 @@ Partial Class ManageForm
         'Institute
         '
         Me.Institute.AutoSize = True
-        Me.Institute.Location = New System.Drawing.Point(77, 175)
+        Me.Institute.Location = New System.Drawing.Point(36, 172)
         Me.Institute.Name = "Institute"
         Me.Institute.Size = New System.Drawing.Size(73, 13)
         Me.Institute.TabIndex = 11
@@ -163,15 +164,15 @@ Partial Class ManageForm
         '
         Me.Field_ComboBox.FormattingEnabled = True
         Me.Field_ComboBox.Items.AddRange(New Object() {"ยังไม่สังกัดสาขา", "วิศวกรรมการผลิต", "วิศวกรรมเกษตรและอาหาร", "วิศวกรรมขนส่ง", "วิศวกรรมคอมพิวเตอร์", "วิศวกรรมเคมี", "วิศวกรรมเครื่องกล", "วิศวกรรมเซรามิก", "วิศวกรรมโทรคมนาคม", "วิศวกรรมพอลิเมอร์", "วิศวกรรมไฟฟ้า", "วิศวกรรมโยธา", "วิศวกรรมโลหการ", "วิศวกรรมสิ่งแวดล้อม", "วิศวกรรมอุตสาหการ", "วิศวกรรมอิเล็กทรอนิกส์", "วิศวกรรมอากาศยาน", "วิศกรรมยานยนต์", "เทคโนโลยีธรณี"})
-        Me.Field_ComboBox.Location = New System.Drawing.Point(165, 172)
+        Me.Field_ComboBox.Location = New System.Drawing.Point(124, 169)
         Me.Field_ComboBox.Name = "Field_ComboBox"
-        Me.Field_ComboBox.Size = New System.Drawing.Size(160, 21)
+        Me.Field_ComboBox.Size = New System.Drawing.Size(181, 21)
         Me.Field_ComboBox.TabIndex = 12
         '
         'Phone
         '
         Me.Phone.AutoSize = True
-        Me.Phone.Location = New System.Drawing.Point(77, 210)
+        Me.Phone.Location = New System.Drawing.Point(36, 207)
         Me.Phone.Name = "Phone"
         Me.Phone.Size = New System.Drawing.Size(72, 13)
         Me.Phone.TabIndex = 13
@@ -179,7 +180,7 @@ Partial Class ManageForm
         '
         'Phone_TextBox
         '
-        Me.Phone_TextBox.Location = New System.Drawing.Point(165, 207)
+        Me.Phone_TextBox.Location = New System.Drawing.Point(124, 204)
         Me.Phone_TextBox.Name = "Phone_TextBox"
         Me.Phone_TextBox.Size = New System.Drawing.Size(100, 20)
         Me.Phone_TextBox.TabIndex = 14
@@ -218,7 +219,7 @@ Partial Class ManageForm
         '
         'StudentReset_Button
         '
-        Me.StudentReset_Button.Location = New System.Drawing.Point(190, 247)
+        Me.StudentReset_Button.Location = New System.Drawing.Point(149, 244)
         Me.StudentReset_Button.Name = "StudentReset_Button"
         Me.StudentReset_Button.Size = New System.Drawing.Size(75, 23)
         Me.StudentReset_Button.TabIndex = 20
@@ -227,7 +228,7 @@ Partial Class ManageForm
         '
         'StudentSave_Button
         '
-        Me.StudentSave_Button.Location = New System.Drawing.Point(80, 247)
+        Me.StudentSave_Button.Location = New System.Drawing.Point(39, 244)
         Me.StudentSave_Button.Name = "StudentSave_Button"
         Me.StudentSave_Button.Size = New System.Drawing.Size(75, 23)
         Me.StudentSave_Button.TabIndex = 19
@@ -340,49 +341,39 @@ Partial Class ManageForm
         '
         'ManageTabControl
         '
-        Me.ManageTabControl.Controls.Add(Me.TabPage1)
-        Me.ManageTabControl.Controls.Add(Me.TabPage2)
+        Me.ManageTabControl.Controls.Add(Me.StudentsTabPage)
+        Me.ManageTabControl.Controls.Add(Me.CarsTabPage)
         Me.ManageTabControl.Location = New System.Drawing.Point(0, 1)
         Me.ManageTabControl.Name = "ManageTabControl"
         Me.ManageTabControl.SelectedIndex = 0
         Me.ManageTabControl.Size = New System.Drawing.Size(787, 562)
         Me.ManageTabControl.TabIndex = 22
         '
-        'TabPage1
+        'StudentsTabPage
         '
-        Me.TabPage1.Controls.Add(Me.StudentReset_Button)
-        Me.TabPage1.Controls.Add(Me.StudentDataGridView)
-        Me.TabPage1.Controls.Add(Me.StudentSave_Button)
-        Me.TabPage1.Controls.Add(Me.IDName)
-        Me.TabPage1.Controls.Add(Me.IDName_TextBox)
-        Me.TabPage1.Controls.Add(Me.Dorm_TextBox)
-        Me.TabPage1.Controls.Add(Me.FName)
-        Me.TabPage1.Controls.Add(Me.Dormitory)
-        Me.TabPage1.Controls.Add(Me.Phone_TextBox)
-        Me.TabPage1.Controls.Add(Me.Institute)
-        Me.TabPage1.Controls.Add(Me.FName_TextBox)
-        Me.TabPage1.Controls.Add(Me.LName_TextBox)
-        Me.TabPage1.Controls.Add(Me.Phone)
-        Me.TabPage1.Controls.Add(Me.Field_ComboBox)
-        Me.TabPage1.Controls.Add(Me.LName)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(779, 536)
-        Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "ข้อมูลนักศึกษา"
-        Me.TabPage1.UseVisualStyleBackColor = True
-        '
-        'TabPage2
-        '
-        Me.TabPage2.Controls.Add(Me.GroupBox1)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(779, 536)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "TabPage2"
-        Me.TabPage2.UseVisualStyleBackColor = True
+        Me.StudentsTabPage.Controls.Add(Me.Cancel_Button)
+        Me.StudentsTabPage.Controls.Add(Me.StudentReset_Button)
+        Me.StudentsTabPage.Controls.Add(Me.StudentDataGridView)
+        Me.StudentsTabPage.Controls.Add(Me.StudentSave_Button)
+        Me.StudentsTabPage.Controls.Add(Me.IDName)
+        Me.StudentsTabPage.Controls.Add(Me.IDName_TextBox)
+        Me.StudentsTabPage.Controls.Add(Me.Dorm_TextBox)
+        Me.StudentsTabPage.Controls.Add(Me.FName)
+        Me.StudentsTabPage.Controls.Add(Me.Dormitory)
+        Me.StudentsTabPage.Controls.Add(Me.Phone_TextBox)
+        Me.StudentsTabPage.Controls.Add(Me.Institute)
+        Me.StudentsTabPage.Controls.Add(Me.FName_TextBox)
+        Me.StudentsTabPage.Controls.Add(Me.LName_TextBox)
+        Me.StudentsTabPage.Controls.Add(Me.Phone)
+        Me.StudentsTabPage.Controls.Add(Me.Field_ComboBox)
+        Me.StudentsTabPage.Controls.Add(Me.LName)
+        Me.StudentsTabPage.Location = New System.Drawing.Point(4, 22)
+        Me.StudentsTabPage.Name = "StudentsTabPage"
+        Me.StudentsTabPage.Padding = New System.Windows.Forms.Padding(3)
+        Me.StudentsTabPage.Size = New System.Drawing.Size(779, 536)
+        Me.StudentsTabPage.TabIndex = 0
+        Me.StudentsTabPage.Text = "ข้อมูลนักศึกษา"
+        Me.StudentsTabPage.UseVisualStyleBackColor = True
         '
         'StudentDataGridView
         '
@@ -397,10 +388,6 @@ Partial Class ManageForm
         Me.StudentDataGridView.ReadOnly = True
         Me.StudentDataGridView.Size = New System.Drawing.Size(344, 461)
         Me.StudentDataGridView.TabIndex = 20
-        '
-        'StudentBindingSource
-        '
-        Me.StudentBindingSource.DataSource = GetType(CarClassLibrary.Student)
         '
         'IdDataGridViewTextBoxColumn
         '
@@ -423,6 +410,30 @@ Partial Class ManageForm
         Me.LastNameDataGridViewTextBoxColumn.Name = "LastNameDataGridViewTextBoxColumn"
         Me.LastNameDataGridViewTextBoxColumn.ReadOnly = True
         '
+        'StudentBindingSource
+        '
+        Me.StudentBindingSource.DataSource = GetType(CarClassLibrary.Student)
+        '
+        'CarsTabPage
+        '
+        Me.CarsTabPage.Controls.Add(Me.GroupBox1)
+        Me.CarsTabPage.Location = New System.Drawing.Point(4, 22)
+        Me.CarsTabPage.Name = "CarsTabPage"
+        Me.CarsTabPage.Padding = New System.Windows.Forms.Padding(3)
+        Me.CarsTabPage.Size = New System.Drawing.Size(779, 536)
+        Me.CarsTabPage.TabIndex = 1
+        Me.CarsTabPage.Text = "ข้อมูลรถ"
+        Me.CarsTabPage.UseVisualStyleBackColor = True
+        '
+        'Cancel_Button
+        '
+        Me.Cancel_Button.Location = New System.Drawing.Point(149, 286)
+        Me.Cancel_Button.Name = "Cancel_Button"
+        Me.Cancel_Button.Size = New System.Drawing.Size(75, 23)
+        Me.Cancel_Button.TabIndex = 21
+        Me.Cancel_Button.Text = "ยกเลิก"
+        Me.Cancel_Button.UseVisualStyleBackColor = True
+        '
         'ManageForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -434,11 +445,11 @@ Partial Class ManageForm
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ManageTabControl.ResumeLayout(False)
-        Me.TabPage1.ResumeLayout(False)
-        Me.TabPage1.PerformLayout()
-        Me.TabPage2.ResumeLayout(False)
+        Me.StudentsTabPage.ResumeLayout(False)
+        Me.StudentsTabPage.PerformLayout()
         CType(Me.StudentDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.StudentBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.CarsTabPage.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -474,11 +485,12 @@ Partial Class ManageForm
     Friend WithEvents Browse_Button As System.Windows.Forms.Button
     Friend WithEvents OpenFileDialog As System.Windows.Forms.OpenFileDialog
     Friend WithEvents ManageTabControl As System.Windows.Forms.TabControl
-    Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
-    Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
+    Friend WithEvents StudentsTabPage As System.Windows.Forms.TabPage
+    Friend WithEvents CarsTabPage As System.Windows.Forms.TabPage
     Friend WithEvents StudentDataGridView As System.Windows.Forms.DataGridView
     Friend WithEvents StudentBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents IdDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents FirstNameDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents LastNameDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Cancel_Button As System.Windows.Forms.Button
 End Class
