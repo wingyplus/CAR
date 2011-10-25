@@ -1,5 +1,8 @@
 ﻿Imports CarClassLibrary
 
+'
+' สร้าง Student Tab
+'
 Partial Public Class ManageForm
 
     Private Sub ClearStudentForm()

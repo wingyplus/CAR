@@ -26,11 +26,4 @@ Public Class ManageForm
         End Using
         Cancel_Button.Hide()
     End Sub
-
-    Private Sub Browse_Button_Click(sender As System.Object, e As System.EventArgs) Handles Browse_Button.Click
-        OpenFileDialog.ShowDialog()
-        Path_TextBox.Text = OpenFileDialog.FileName
-    End Sub
-
-    
 End Class
