@@ -63,14 +63,14 @@ Partial Class ManageForm
         Me.StudentBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CarsTabPage = New System.Windows.Forms.TabPage()
         Me.CarsDataGridView = New System.Windows.Forms.DataGridView()
-        Me.CarBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.CarPictureBox = New System.Windows.Forms.PictureBox()
         Me.IdDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BrandDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ModelDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TagIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PictureDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.StudentIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CarBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CarPictureBox = New System.Windows.Forms.PictureBox()
         Me.s.SuspendLayout()
         Me.StudentsTabPage.SuspendLayout()
         CType(Me.StudentDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -257,7 +257,7 @@ Partial Class ManageForm
         Me.Browse_Button.Location = New System.Drawing.Point(498, 204)
         Me.Browse_Button.Name = "Browse_Button"
         Me.Browse_Button.Size = New System.Drawing.Size(75, 23)
-        Me.Browse_Button.TabIndex = 26
+        Me.Browse_Button.TabIndex = 7
         Me.Browse_Button.Text = "Browse"
         Me.Browse_Button.UseVisualStyleBackColor = True
         '
@@ -450,18 +450,6 @@ Partial Class ManageForm
         Me.CarsDataGridView.Size = New System.Drawing.Size(676, 190)
         Me.CarsDataGridView.TabIndex = 29
         '
-        'CarBindingSource
-        '
-        Me.CarBindingSource.DataSource = GetType(CarClassLibrary.Car)
-        '
-        'CarPictureBox
-        '
-        Me.CarPictureBox.Location = New System.Drawing.Point(28, 29)
-        Me.CarPictureBox.Name = "CarPictureBox"
-        Me.CarPictureBox.Size = New System.Drawing.Size(206, 197)
-        Me.CarPictureBox.TabIndex = 28
-        Me.CarPictureBox.TabStop = False
-        '
         'IdDataGridViewTextBoxColumn1
         '
         Me.IdDataGridViewTextBoxColumn1.DataPropertyName = "Id"
@@ -503,6 +491,18 @@ Partial Class ManageForm
         Me.StudentIdDataGridViewTextBoxColumn.HeaderText = "Student_Id"
         Me.StudentIdDataGridViewTextBoxColumn.Name = "StudentIdDataGridViewTextBoxColumn"
         Me.StudentIdDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'CarBindingSource
+        '
+        Me.CarBindingSource.DataSource = GetType(CarClassLibrary.Car)
+        '
+        'CarPictureBox
+        '
+        Me.CarPictureBox.Location = New System.Drawing.Point(28, 29)
+        Me.CarPictureBox.Name = "CarPictureBox"
+        Me.CarPictureBox.Size = New System.Drawing.Size(206, 197)
+        Me.CarPictureBox.TabIndex = 28
+        Me.CarPictureBox.TabStop = False
         '
         'ManageForm
         '

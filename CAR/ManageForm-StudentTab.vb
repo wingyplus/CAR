@@ -111,7 +111,7 @@ Partial Public Class ManageForm
             FName_TextBox.Text = student.FirstName
             LName_TextBox.Text = student.LastName
             Dorm_TextBox.Text = student.Dome
-            Field_ComboBox.SelectedText = student.StudyField
+            Field_ComboBox.SelectedItem = student.StudyField
             Phone_TextBox.Text = student.Phone
             StudentSave_Button.Text = "แก้ไขข้อมูล"
             StudentReset_Button.Text = "ลบข้อมูล"
