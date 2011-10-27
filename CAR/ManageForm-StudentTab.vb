@@ -26,7 +26,7 @@ Partial Public Class ManageForm
                 entity.DeleteObject(student)
                 entity.SaveChanges()
                 IDName_TextBox.Enabled = True
-                BindDataSource()
+                BindDataSource("Students")
             End Using
         End If
         ClearStudentForm()
@@ -95,7 +95,7 @@ Partial Public Class ManageForm
         '
         ' Update Data Table
         '
-        BindDataSource()
+        BindDataSource("Students")
     End Sub
 
     Private Sub StudentDataGridView_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles StudentDataGridView.CellContentClick

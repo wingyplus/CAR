@@ -62,13 +62,25 @@ Partial Class ManageForm
         Me.LastNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.StudentBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CarsTabPage = New System.Windows.Forms.TabPage()
+        Me.CarsDataGridView = New System.Windows.Forms.DataGridView()
         Me.CarPictureBox = New System.Windows.Forms.PictureBox()
+        Me.CarBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.IdDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BrandDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ModelDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TagIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PictureDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StudentIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StudentDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TimeCarsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.s.SuspendLayout()
         Me.StudentsTabPage.SuspendLayout()
         CType(Me.StudentDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StudentBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.CarsTabPage.SuspendLayout()
+        CType(Me.CarsDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CarPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CarBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'IDTag
@@ -401,6 +413,7 @@ Partial Class ManageForm
         '
         'CarsTabPage
         '
+        Me.CarsTabPage.Controls.Add(Me.CarsDataGridView)
         Me.CarsTabPage.Controls.Add(Me.CarPictureBox)
         Me.CarsTabPage.Controls.Add(Me.Path_TextBox)
         Me.CarsTabPage.Controls.Add(Me.Browse_Button)
@@ -425,6 +438,20 @@ Partial Class ManageForm
         Me.CarsTabPage.Text = "ข้อมูลรถ"
         Me.CarsTabPage.UseVisualStyleBackColor = True
         '
+        'CarsDataGridView
+        '
+        Me.CarsDataGridView.AllowUserToAddRows = False
+        Me.CarsDataGridView.AllowUserToDeleteRows = False
+        Me.CarsDataGridView.AutoGenerateColumns = False
+        Me.CarsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.CarsDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn1, Me.BrandDataGridViewTextBoxColumn, Me.ModelDataGridViewTextBoxColumn, Me.TagIdDataGridViewTextBoxColumn, Me.PictureDataGridViewTextBoxColumn, Me.StudentIdDataGridViewTextBoxColumn, Me.StudentDataGridViewTextBoxColumn, Me.TimeCarsDataGridViewTextBoxColumn})
+        Me.CarsDataGridView.DataSource = Me.CarBindingSource
+        Me.CarsDataGridView.Location = New System.Drawing.Point(28, 299)
+        Me.CarsDataGridView.Name = "CarsDataGridView"
+        Me.CarsDataGridView.ReadOnly = True
+        Me.CarsDataGridView.Size = New System.Drawing.Size(676, 190)
+        Me.CarsDataGridView.TabIndex = 29
+        '
         'CarPictureBox
         '
         Me.CarPictureBox.Location = New System.Drawing.Point(28, 29)
@@ -432,6 +459,66 @@ Partial Class ManageForm
         Me.CarPictureBox.Size = New System.Drawing.Size(206, 197)
         Me.CarPictureBox.TabIndex = 28
         Me.CarPictureBox.TabStop = False
+        '
+        'CarBindingSource
+        '
+        Me.CarBindingSource.DataSource = GetType(CarClassLibrary.Car)
+        '
+        'IdDataGridViewTextBoxColumn1
+        '
+        Me.IdDataGridViewTextBoxColumn1.DataPropertyName = "Id"
+        Me.IdDataGridViewTextBoxColumn1.HeaderText = "Id"
+        Me.IdDataGridViewTextBoxColumn1.Name = "IdDataGridViewTextBoxColumn1"
+        Me.IdDataGridViewTextBoxColumn1.ReadOnly = True
+        '
+        'BrandDataGridViewTextBoxColumn
+        '
+        Me.BrandDataGridViewTextBoxColumn.DataPropertyName = "Brand"
+        Me.BrandDataGridViewTextBoxColumn.HeaderText = "Brand"
+        Me.BrandDataGridViewTextBoxColumn.Name = "BrandDataGridViewTextBoxColumn"
+        Me.BrandDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'ModelDataGridViewTextBoxColumn
+        '
+        Me.ModelDataGridViewTextBoxColumn.DataPropertyName = "Model"
+        Me.ModelDataGridViewTextBoxColumn.HeaderText = "Model"
+        Me.ModelDataGridViewTextBoxColumn.Name = "ModelDataGridViewTextBoxColumn"
+        Me.ModelDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'TagIdDataGridViewTextBoxColumn
+        '
+        Me.TagIdDataGridViewTextBoxColumn.DataPropertyName = "TagId"
+        Me.TagIdDataGridViewTextBoxColumn.HeaderText = "TagId"
+        Me.TagIdDataGridViewTextBoxColumn.Name = "TagIdDataGridViewTextBoxColumn"
+        Me.TagIdDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'PictureDataGridViewTextBoxColumn
+        '
+        Me.PictureDataGridViewTextBoxColumn.DataPropertyName = "Picture"
+        Me.PictureDataGridViewTextBoxColumn.HeaderText = "Picture"
+        Me.PictureDataGridViewTextBoxColumn.Name = "PictureDataGridViewTextBoxColumn"
+        Me.PictureDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'StudentIdDataGridViewTextBoxColumn
+        '
+        Me.StudentIdDataGridViewTextBoxColumn.DataPropertyName = "Student_Id"
+        Me.StudentIdDataGridViewTextBoxColumn.HeaderText = "Student_Id"
+        Me.StudentIdDataGridViewTextBoxColumn.Name = "StudentIdDataGridViewTextBoxColumn"
+        Me.StudentIdDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'StudentDataGridViewTextBoxColumn
+        '
+        Me.StudentDataGridViewTextBoxColumn.DataPropertyName = "Student"
+        Me.StudentDataGridViewTextBoxColumn.HeaderText = "Student"
+        Me.StudentDataGridViewTextBoxColumn.Name = "StudentDataGridViewTextBoxColumn"
+        Me.StudentDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'TimeCarsDataGridViewTextBoxColumn
+        '
+        Me.TimeCarsDataGridViewTextBoxColumn.DataPropertyName = "TimeCars"
+        Me.TimeCarsDataGridViewTextBoxColumn.HeaderText = "TimeCars"
+        Me.TimeCarsDataGridViewTextBoxColumn.Name = "TimeCarsDataGridViewTextBoxColumn"
+        Me.TimeCarsDataGridViewTextBoxColumn.ReadOnly = True
         '
         'ManageForm
         '
@@ -448,7 +535,9 @@ Partial Class ManageForm
         CType(Me.StudentBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.CarsTabPage.ResumeLayout(False)
         Me.CarsTabPage.PerformLayout()
+        CType(Me.CarsDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CarPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CarBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -492,4 +581,14 @@ Partial Class ManageForm
     Friend WithEvents LastNameDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Cancel_Button As System.Windows.Forms.Button
     Friend WithEvents CarPictureBox As System.Windows.Forms.PictureBox
+    Friend WithEvents CarsDataGridView As System.Windows.Forms.DataGridView
+    Friend WithEvents IdDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents BrandDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ModelDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents TagIdDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents PictureDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents StudentIdDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents StudentDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents TimeCarsDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents CarBindingSource As System.Windows.Forms.BindingSource
 End Class
