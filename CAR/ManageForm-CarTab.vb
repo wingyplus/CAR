@@ -5,15 +5,6 @@ Imports System
 '
 Partial Public Class ManageForm
 
-    'Private Function CheckFileExtension(ByVal PictureName As String) As Boolean
-    '    Dim ext = System.IO.Path.GetExtension(PictureName)
-    '    Select Case ext
-    '        Case ".png", ".jpg", ".jpeg"
-    '            Return True
-    '    End Select
-    '    Return False
-    'End Function
-
     Private Sub ClearCarForm()
         IDTag_TextBox.Text = ""
         Plate_TextBox.Text = ""
@@ -21,11 +12,10 @@ Partial Public Class ManageForm
         Model_TextBox.Text = ""
         Path_TextBox.Text = ""
         StudentOwner_ComboBox.SelectedIndex = 0
+        IDTag_TextBox.Focus()
     End Sub
 
     Private Function CopyAndRenameImage(ByVal PictureName As String) As String
-        'MsgBox(IO.Path.GetFullPath(
-        '       Environment.CurrentDirectory() & "..\..\..\Images"))
         Dim path As New IO.FileInfo(PictureName)
         Dim destinationPath = IO.Path.GetFullPath(
                Environment.CurrentDirectory() & "..\..\..\Images\" & Plate_TextBox.Text & path.Extension())
@@ -49,7 +39,6 @@ Partial Public Class ManageForm
     ' Save Data to Database
     '
     Private Sub CarSave_Button_Click(sender As System.Object, e As System.EventArgs) Handles CarSave_Button.Click
-        'MsgBox(StudentOwner_ComboBox.Text.Split(New Char() {"-"c})(0))
         Try
             Dim stOwner = StudentOwner_ComboBox.Text.Split(New Char() {"-"c})(0)
 
@@ -68,9 +57,8 @@ Partial Public Class ManageForm
             MsgBox("บันทึกข้อมูล เรียบร้อย")
         Catch ex As UpdateException
             MsgBox("ข้อมูลนี้มีอยู่แล้ว")
-            'MsgBox(ex.InnerException)
         End Try
-        'MsgBox(CopyAndRenameImage(Path_TextBox.Text
+        ClearCarForm()
         BindDataSource("Cars")
     End Sub
 End Class

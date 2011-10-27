@@ -209,7 +209,7 @@ Partial Class ManageForm
         Me.Brand_TextBox.Location = New System.Drawing.Point(371, 96)
         Me.Brand_TextBox.Name = "Brand_TextBox"
         Me.Brand_TextBox.Size = New System.Drawing.Size(100, 20)
-        Me.Brand_TextBox.TabIndex = 16
+        Me.Brand_TextBox.TabIndex = 3
         '
         'Plate
         '
@@ -225,7 +225,7 @@ Partial Class ManageForm
         Me.Plate_TextBox.Location = New System.Drawing.Point(371, 61)
         Me.Plate_TextBox.Name = "Plate_TextBox"
         Me.Plate_TextBox.Size = New System.Drawing.Size(100, 20)
-        Me.Plate_TextBox.TabIndex = 18
+        Me.Plate_TextBox.TabIndex = 2
         '
         'StudentReset_Button
         '
@@ -250,7 +250,7 @@ Partial Class ManageForm
         Me.Path_TextBox.Location = New System.Drawing.Point(371, 206)
         Me.Path_TextBox.Name = "Path_TextBox"
         Me.Path_TextBox.Size = New System.Drawing.Size(121, 20)
-        Me.Path_TextBox.TabIndex = 27
+        Me.Path_TextBox.TabIndex = 6
         '
         'Browse_Button
         '
@@ -275,7 +275,7 @@ Partial Class ManageForm
         Me.Model_TextBox.Location = New System.Drawing.Point(371, 131)
         Me.Model_TextBox.Name = "Model_TextBox"
         Me.Model_TextBox.Size = New System.Drawing.Size(100, 20)
-        Me.Model_TextBox.TabIndex = 24
+        Me.Model_TextBox.TabIndex = 4
         '
         'CarReset_Button
         '
@@ -319,7 +319,7 @@ Partial Class ManageForm
         Me.StudentOwner_ComboBox.Location = New System.Drawing.Point(371, 166)
         Me.StudentOwner_ComboBox.Name = "StudentOwner_ComboBox"
         Me.StudentOwner_ComboBox.Size = New System.Drawing.Size(202, 21)
-        Me.StudentOwner_ComboBox.TabIndex = 19
+        Me.StudentOwner_ComboBox.TabIndex = 5
         '
         'OpenFileDialog
         '
