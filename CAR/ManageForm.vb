@@ -12,14 +12,11 @@ Public Class ManageForm
                     StudentBindingSource.DataSource = students
                 End Using
             Case "Cars"
-                'MsgBox("Cars")
                 Using dataCar As New DataCarEntities
                     Dim cars = (From b In dataCar.Cars
                                Select b
                                Order By b.Id Ascending).ToList()
 
-                    'MsgBox(cars)
-                    'CarBindingSource.DataSource = cars
                     CarBindingSource.DataSource = cars
                 End Using
         End Select
