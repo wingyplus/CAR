@@ -173,6 +173,7 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\DataSources\CarClassLibrary.Car.datasource" />
     <None Include="My Project\DataSources\CarClassLibrary.DataCarEntities.datasource" />
     <None Include="My Project\DataSources\CarClassLibrary.Student.datasource" />
     <None Include="My Project\DataSources\DataCarEntities.datasource" />
