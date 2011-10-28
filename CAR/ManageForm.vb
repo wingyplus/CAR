@@ -38,5 +38,8 @@ Public Class ManageForm
         End Using
         BindDataSource("Cars")
         Cancel_Button.Hide()
+        CarCancelButton.Hide()
     End Sub
+
+    
 End Class

@@ -103,8 +103,17 @@ Partial Public Class ManageForm
                 BindDataSource("Cars")
             End Using
             MsgBox("ลบข้อมูล เรียบร้อยแล้ว")
+            CarReset_Button.Text = "ล้างข้อมูล"
         End If
         ClearCarForm()
+    End Sub
+
+    Private Sub CarCancelButton_Click(sender As System.Object, e As System.EventArgs) Handles CarCancelButton.Click
+        ClearCarForm()
+        Plate_TextBox.Enabled = True
+        CarSave_Button.Text = "บันทึกข้อมูล"
+        CarReset_Button.Text = "ล้างข้อมูล"
+        CarCancelButton.Hide()
     End Sub
 
     Private Sub CarsDataGridView_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles CarsDataGridView.CellContentClick
@@ -129,6 +138,6 @@ Partial Public Class ManageForm
         CarSave_Button.Text = "แก้ไขข้อมูล"
         CarReset_Button.Text = "ลบข้อมูล"
         Plate_TextBox.Enabled = False
-
+        CarCancelButton.Show()
     End Sub
 End Class

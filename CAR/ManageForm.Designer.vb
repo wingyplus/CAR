@@ -71,6 +71,7 @@ Partial Class ManageForm
         Me.StudentIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CarBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CarPictureBox = New System.Windows.Forms.PictureBox()
+        Me.CarCancelButton = New System.Windows.Forms.Button()
         Me.s.SuspendLayout()
         Me.StudentsTabPage.SuspendLayout()
         CType(Me.StudentDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -279,7 +280,7 @@ Partial Class ManageForm
         '
         'CarReset_Button
         '
-        Me.CarReset_Button.Location = New System.Drawing.Point(407, 240)
+        Me.CarReset_Button.Location = New System.Drawing.Point(396, 241)
         Me.CarReset_Button.Name = "CarReset_Button"
         Me.CarReset_Button.Size = New System.Drawing.Size(75, 23)
         Me.CarReset_Button.TabIndex = 22
@@ -411,6 +412,7 @@ Partial Class ManageForm
         '
         'CarsTabPage
         '
+        Me.CarsTabPage.Controls.Add(Me.CarCancelButton)
         Me.CarsTabPage.Controls.Add(Me.CarsDataGridView)
         Me.CarsTabPage.Controls.Add(Me.CarPictureBox)
         Me.CarsTabPage.Controls.Add(Me.Path_TextBox)
@@ -504,6 +506,15 @@ Partial Class ManageForm
         Me.CarPictureBox.TabIndex = 28
         Me.CarPictureBox.TabStop = False
         '
+        'CarCancelButton
+        '
+        Me.CarCancelButton.Location = New System.Drawing.Point(498, 241)
+        Me.CarCancelButton.Name = "CarCancelButton"
+        Me.CarCancelButton.Size = New System.Drawing.Size(75, 23)
+        Me.CarCancelButton.TabIndex = 30
+        Me.CarCancelButton.Text = "ยกเลิก"
+        Me.CarCancelButton.UseVisualStyleBackColor = True
+        '
         'ManageForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -573,4 +584,5 @@ Partial Class ManageForm
     Friend WithEvents TagIdDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents PictureDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents StudentIdDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents CarCancelButton As System.Windows.Forms.Button
 End Class
