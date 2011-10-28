@@ -126,5 +126,6 @@ Partial Public Class ManageForm
         IDName_TextBox.Enabled = True
         StudentSave_Button.Text = "บันทึกข้อมูล"
         StudentReset_Button.Text = "ล้างข้อมูล"
+        Cancel_Button.Hide()
     End Sub
 End Class
