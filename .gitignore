@@ -1,3 +1,5 @@
 CAR/bin/Debug/*
 CAR/obj/x86/Debug/*
 *.exe
+CAR/Images/*.jpg
+CAR/Images/*.png

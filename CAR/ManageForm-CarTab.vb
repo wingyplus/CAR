@@ -22,6 +22,9 @@ Partial Public Class ManageForm
         If destinationPath = path.FullName Then
             Return destinationPath
         Else
+            If IO.File.Exists(destinationPath) Then
+                My.Computer.FileSystem.DeleteFile(destinationPath)
+            End If
             My.Computer.FileSystem.CopyFile(path.FullName, destinationPath, True)
         End If
 
@@ -86,6 +89,21 @@ Partial Public Class ManageForm
     End Sub
 
     Private Sub CarReset_Button_Click(sender As System.Object, e As System.EventArgs) Handles CarReset_Button.Click
+        If CarReset_Button.Text = "ลบข้อมูล" Then
+            Using entity As New DataCarEntities
+                Dim car = entity.Cars.First(
+                    Function(c) c.Id = Plate_TextBox.Text
+                        )
+                '
+                ' Delete picture in Images folder.
+                My.Computer.FileSystem.DeleteFile(car.Picture)
+                entity.Cars.DeleteObject(car)
+                entity.SaveChanges()
+                Plate_TextBox.Enabled = True
+                BindDataSource("Cars")
+            End Using
+            MsgBox("ลบข้อมูล เรียบร้อยแล้ว")
+        End If
         ClearCarForm()
     End Sub
 
@@ -109,6 +127,7 @@ Partial Public Class ManageForm
         End Using
 
         CarSave_Button.Text = "แก้ไขข้อมูล"
+        CarReset_Button.Text = "ลบข้อมูล"
         Plate_TextBox.Enabled = False
 
     End Sub
