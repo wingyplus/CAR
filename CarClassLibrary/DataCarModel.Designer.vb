@@ -16,9 +16,10 @@ Imports System.ComponentModel
 Imports System.Xml.Serialization
 Imports System.Runtime.Serialization
 
-<Assembly: EdmSchemaAttribute("e1ac460d-a27d-4a91-b6ed-1e87202b7a40")>
+<Assembly: EdmSchemaAttribute("ac177fb4-5a91-4aae-a22f-9862bf0d5e0f")>
 #Region "EDM Relationship Metadata"
 <Assembly: EdmRelationshipAttribute("DataCarModel", "FK_StudentsCars", "Students", System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(Student), "Cars", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(Car), True)>
+<Assembly: EdmRelationshipAttribute("DataCarModel", "CarTimeCars", "Car", System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(Car), "TimeCars", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(TimeCars))>
 
 #End Region
 
@@ -87,6 +88,20 @@ Public Partial Class DataCarEntities
     ''' <summary>
     ''' No Metadata Documentation available.
     ''' </summary>
+    Public ReadOnly Property TimeCars() As ObjectSet(Of TimeCars)
+        Get
+            If (_TimeCars Is Nothing) Then
+                _TimeCars = MyBase.CreateObjectSet(Of TimeCars)("TimeCars")
+            End If
+            Return _TimeCars
+        End Get
+    End Property
+
+    Private _TimeCars As ObjectSet(Of TimeCars)
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
     Public ReadOnly Property Students() As ObjectSet(Of Student)
         Get
             If (_Students Is Nothing) Then
@@ -109,6 +124,13 @@ Public Partial Class DataCarEntities
     End Sub
 
     ''' <summary>
+    ''' Deprecated Method for adding a new object to the TimeCars EntitySet. Consider using the .Add method of the associated ObjectSet(Of T) property instead.
+    ''' </summary>
+    Public Sub AddToTimeCars(ByVal timeCars As TimeCars)
+        MyBase.AddObject("TimeCars", timeCars)
+    End Sub
+
+    ''' <summary>
     ''' Deprecated Method for adding a new object to the Students EntitySet. Consider using the .Add method of the associated ObjectSet(Of T) property instead.
     ''' </summary>
     Public Sub AddToStudents(ByVal student As Student)
@@ -127,7 +149,6 @@ End Class
 <EdmEntityTypeAttribute(NamespaceName:="DataCarModel", Name:="Car")>
 <Serializable()>
 <DataContractAttribute(IsReference:=True)>
-<KnownTypeAttribute(GetType(Cars_TimeCars))>
 Public Partial Class Car
     Inherits EntityObject
     #Region "Factory Method"
@@ -341,68 +362,23 @@ Public Partial Class Car
         End Set
     End Property
 
-    #End Region
-End Class
-
-''' <summary>
-''' No Metadata Documentation available.
-''' </summary>
-<EdmEntityTypeAttribute(NamespaceName:="DataCarModel", Name:="Cars_TimeCars")>
-<Serializable()>
-<DataContractAttribute(IsReference:=True)>
-Public Partial Class Cars_TimeCars
-    Inherits Car
-    #Region "Factory Method"
-
-    ''' <summary>
-    ''' Create a new Cars_TimeCars object.
-    ''' </summary>
-    ''' <param name="id">Initial value of the Id property.</param>
-    ''' <param name="brand">Initial value of the Brand property.</param>
-    ''' <param name="model">Initial value of the Model property.</param>
-    ''' <param name="tagId">Initial value of the TagId property.</param>
-    ''' <param name="picture">Initial value of the Picture property.</param>
-    ''' <param name="student_Id">Initial value of the Student_Id property.</param>
-    ''' <param name="dateTime">Initial value of the DateTime property.</param>
-    Public Shared Function CreateCars_TimeCars(id As Global.System.String, brand As Global.System.String, model As Global.System.String, tagId As Global.System.String, picture As Global.System.String, student_Id As Global.System.String, dateTime As Global.System.DateTime) As Cars_TimeCars
-        Dim cars_TimeCars as Cars_TimeCars = New Cars_TimeCars
-        cars_TimeCars.Id = id
-        cars_TimeCars.Brand = brand
-        cars_TimeCars.Model = model
-        cars_TimeCars.TagId = tagId
-        cars_TimeCars.Picture = picture
-        cars_TimeCars.Student_Id = student_Id
-        cars_TimeCars.DateTime = dateTime
-        Return cars_TimeCars
-    End Function
-
-    #End Region
-    #Region "Primitive Properties"
-
     ''' <summary>
     ''' No Metadata Documentation available.
     ''' </summary>
-    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=false)>
+    <XmlIgnoreAttribute()>
+    <SoapIgnoreAttribute()>
     <DataMemberAttribute()>
-    Public Property DateTime() As Global.System.DateTime
+    <EdmRelationshipNavigationPropertyAttribute("DataCarModel", "CarTimeCars", "TimeCars")>
+     Public Property TimeCars() As EntityCollection(Of TimeCars)
         Get
-            Return _DateTime
+            Return CType(Me,IEntityWithRelationships).RelationshipManager.GetRelatedCollection(Of TimeCars)("DataCarModel.CarTimeCars", "TimeCars")
         End Get
         Set
-            OnDateTimeChanging(value)
-            ReportPropertyChanging("DateTime")
-            _DateTime = StructuralObject.SetValidValue(value)
-            ReportPropertyChanged("DateTime")
-            OnDateTimeChanged()
+            If (Not value Is Nothing)
+                CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedCollection(Of TimeCars)("DataCarModel.CarTimeCars", "TimeCars", value)
+            End If
         End Set
     End Property
-
-    Private _DateTime As Global.System.DateTime
-    Private Partial Sub OnDateTimeChanging(value As Global.System.DateTime)
-    End Sub
-
-    Private Partial Sub OnDateTimeChanged()
-    End Sub
 
     #End Region
 End Class
@@ -609,6 +585,120 @@ Public Partial Class Student
         Set
             If (Not value Is Nothing)
                 CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedCollection(Of Car)("DataCarModel.FK_StudentsCars", "Cars", value)
+            End If
+        End Set
+    End Property
+
+    #End Region
+End Class
+
+''' <summary>
+''' No Metadata Documentation available.
+''' </summary>
+<EdmEntityTypeAttribute(NamespaceName:="DataCarModel", Name:="TimeCars")>
+<Serializable()>
+<DataContractAttribute(IsReference:=True)>
+Public Partial Class TimeCars
+    Inherits EntityObject
+    #Region "Factory Method"
+
+    ''' <summary>
+    ''' Create a new TimeCars object.
+    ''' </summary>
+    ''' <param name="dateTime">Initial value of the DateTime property.</param>
+    ''' <param name="id">Initial value of the Id property.</param>
+    Public Shared Function CreateTimeCars(dateTime As Global.System.DateTime, id As Global.System.Int32) As TimeCars
+        Dim timeCars as TimeCars = New TimeCars
+        timeCars.DateTime = dateTime
+        timeCars.Id = id
+        Return timeCars
+    End Function
+
+    #End Region
+    #Region "Primitive Properties"
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=false)>
+    <DataMemberAttribute()>
+    Public Property DateTime() As Global.System.DateTime
+        Get
+            Return _DateTime
+        End Get
+        Set
+            OnDateTimeChanging(value)
+            ReportPropertyChanging("DateTime")
+            _DateTime = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("DateTime")
+            OnDateTimeChanged()
+        End Set
+    End Property
+
+    Private _DateTime As Global.System.DateTime
+    Private Partial Sub OnDateTimeChanging(value As Global.System.DateTime)
+    End Sub
+
+    Private Partial Sub OnDateTimeChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=true, IsNullable:=false)>
+    <DataMemberAttribute()>
+    Public Property Id() As Global.System.Int32
+        Get
+            Return _Id
+        End Get
+        Set
+            If (_Id <> Value) Then
+                OnIdChanging(value)
+                ReportPropertyChanging("Id")
+                _Id = StructuralObject.SetValidValue(value)
+                ReportPropertyChanged("Id")
+                OnIdChanged()
+            End If
+        End Set
+    End Property
+
+    Private _Id As Global.System.Int32
+    Private Partial Sub OnIdChanging(value As Global.System.Int32)
+    End Sub
+
+    Private Partial Sub OnIdChanged()
+    End Sub
+
+    #End Region
+    #Region "Navigation Properties"
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <XmlIgnoreAttribute()>
+    <SoapIgnoreAttribute()>
+    <DataMemberAttribute()>
+    <EdmRelationshipNavigationPropertyAttribute("DataCarModel", "CarTimeCars", "Car")>
+    Public Property Car() As Car
+        Get
+            Return CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of Car)("DataCarModel.CarTimeCars", "Car").Value
+        End Get
+        Set
+            CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of Car)("DataCarModel.CarTimeCars", "Car").Value = value
+        End Set
+    End Property
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <BrowsableAttribute(False)>
+    <DataMemberAttribute()>
+    Public Property CarReference() As EntityReference(Of Car)
+        Get
+            Return CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of Car)("DataCarModel.CarTimeCars", "Car")
+        End Get
+        Set
+            If (Not value Is Nothing)
+                CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedReference(Of Car)("DataCarModel.CarTimeCars", "Car", value)
             End If
         End Set
     End Property
